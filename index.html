@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.1-web/css/all.css">
 </head>
@@ -17,8 +19,8 @@
     <!-- Block Element Modifier -->
     <div class="app">
         <header class="header">
-            <div class="grid">
-                <nav class="header__navbar">
+            <div class="grid wide">
+                <nav class="header__navbar hidden-on-mobile-tablet">
                     <ul class="header__navbar-list">
                         <li class="header__navbar-item header__navbar-item--has-qr header__navbar-item--separate">Tải ứng dụng
                             <div class="header__qr">
@@ -112,7 +114,10 @@
                 </nav>
                 <!-- Tìm kiếm & logo -->
                 <div class="header-with-search">
-                    <div class="header__logo">
+                    <label for="mobile-search-checkbox" class="header__mobile-search">
+                        <i class="  header__mobile-search-icon fa-solid fa-magnifying-glass"></i>
+                    </label>
+                    <div class="header__logo hidden-on-tablet">
                         <a href="/" class="header__logo-link">
                             <svg class="header__logo-img" viewBox="0 0 192 65">
                         <g fill-rule="evenodd">
@@ -121,8 +126,9 @@
                   </svg>
                         </a>
                     </div>
+                    <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
                     <!-- Tìm kiếm -->
-                    <div class="header__search">
+                    <div class="header__search ">
                         <div class="header__search-input-wrap">
                             <input type="text" class="header__search-input" placeholder="Tìm kiếm sản phẩm">
                             <!-- Search History -->
@@ -136,8 +142,7 @@
                                         <a href="">Áo hoodie</a>
                                     </li>
                                     <li class="header__search-history-item">
-                                        <a href="">Iphone 14 pro max</a>
-                                    </li>
+                                        <a href="">Iphone 14 pro max</a> search </li>
                                 </ul>
                             </div>
                         </div>
@@ -231,12 +236,33 @@
                     </div>
                 </div>
             </div>
-
+            <ul class="header__sort-bar">
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">
+                      Liên quan 
+                    </a>
+                </li>
+                <li class="header__sort-item header__sort-item--active">
+                    <a href="" class="header__sort-link">
+                       Mới nhất
+                    </a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">
+                        Bán chạy
+                    </a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">
+                       Giá
+                    </a>
+                </li>
+            </ul>
         </header>
         <div class="app__container ">
-            <div class="grid">
-                <div class="grid__row app__content">
-                    <div class="grid__column-2">
+            <div class="grid wide">
+                <div class="row sm-gutter app__content">
+                    <div class="col l-2 m-0 c-0">
                         <nav class="category">
                             <h3 class="category__heading"> Danh mục </h3>
                             <ul class="category-list">
@@ -258,8 +284,8 @@
                             </ul>
                         </nav>
                     </div>
-                    <div class="grid__column-10">
-                        <div class="home-filter">
+                    <div class="col l-10 m-12 c-12">
+                        <div class="home-filter hidden-on-mobile-tablet">
                             <span class="home-filter__label">Sắp xếp theo</span>
                             <button class="home-filter__btn btn">Phổ Biến</button>
                             <button class="home-filter__btn btn btn--primary">Mới Nhất</button>
@@ -292,10 +318,54 @@
                                 </div>
                             </div>
                         </div>
+                        <nav class="mobile-category">
+                            <ul class="mobile-category__list">
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">
+                                        Dụng cụ & Thiết bị tiện ích
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
                         <div class="home-product">
-                            <div class="grid__row ">
+                            <div class="row sm-gutter ">
                                 <!-- Product item -->
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -330,7 +400,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -365,7 +435,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -400,7 +470,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -435,7 +505,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -470,7 +540,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -505,7 +575,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -540,7 +610,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -575,7 +645,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -610,7 +680,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4 ">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a href="" class="home-product-item">
                                         <div class="home-product-item__img" style="background-image: url(https://ohui.vn/wp-content/uploads/2021/12/The-First-Geniture-Ampoule-Advanced-300x300.png);"></div>
                                         <h4 class="home-product-item__name">Bộ dưỡng da Đông y Gongjinhyang 3PCS Special Set</h4>
@@ -685,10 +755,10 @@
                 </div>
             </div>
         </div>
-        <footer class="footer ">
-            <div class="grid">
-                <div class="grid__row">
-                    <div class="grid__column-2-4">
+        <footer class="footer">
+            <div class="grid wide footer__content">
+                <div class="row">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Chăm Sóc Khách Hàng</h3>
                         <ul class="footer__list">
                             <li class="footer-item">
@@ -702,7 +772,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Giới Thiệu</h3>
                         <ul class="footer__list">
                             <li class="footer-item">
@@ -716,7 +786,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Danh Mục</h3>
                         <ul class="footer__list">
                             <li class="footer-item">
@@ -730,7 +800,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Theo Dõi </h3>
                         <ul class="footer__list">
                             <li class="footer-item">
@@ -744,7 +814,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-8 c-12">
                         <h3 class="footer__heading">Vào Cửa Hàng Trên Ứng Dụng</h3>
                         <div class="footer__download">
                             <img src="/assets/img/qr_code.png" alt="Download QR" class="footer__download-qr">
@@ -761,7 +831,7 @@
                 </div>
             </div>
             <div class="footer__bottom">
-                <div class="grid">
+                <div class="grid wide">
                     <p class="footer__text">©2023 Shopee. Bản Quyền Thuộc Việt Nam</p>
                 </div>
             </div>
@@ -770,7 +840,7 @@
         <!-- <div class="modal ">
         <div class="modal__overlay "></div>
         <div class="modal__body ">
-            <!-- Form Đăng Ký -->
+             Form Đăng Ký -->
         <!-- <div class="auth-form ">
                 <div class="auth-form__container ">
                     <div class="auth-form__header ">

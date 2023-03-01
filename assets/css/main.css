@@ -1,3 +1,7 @@
+.app {
+    overflow: hidden;
+}
+
 .header {
     height: var(--header-height);
     background-image: linear-gradient(0, #fe6433, #f53e2d);
@@ -489,6 +493,16 @@
     margin: 0 8px;
 }
 
+.header__mobile-search {
+    padding: 0 12px;
+    display: none;
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+
 .header__logo {
     width: 200px;
 }
@@ -496,10 +510,16 @@
 .header__logo-link {
     text-decoration: none;
     color: transparent;
+    display: block;
+    line-height: 0;
 }
 
 .header__logo-img {
     width: 150px;
+}
+
+.header__search-checkbox:checked~.header__search {
+    display: flex;
 }
 
 .header__search {
@@ -685,6 +705,63 @@
 }
 
 
+/* Header sort bar */
+
+.header__sort-bar {
+    position: fixed;
+    display: none;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header__sort-item {
+    flex: 1;
+}
+
+.header__sort-link {
+    text-decoration: none;
+    top: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+}
+
+.header__sort-link::before {
+    content: "";
+    top: 50%;
+    left: 0;
+    height: 60%;
+    position: absolute;
+    border-left: 1px solid #e5e5e5;
+    transform: translateY(-50%);
+}
+
+.header__sort-item--active .header__sort-link {
+    color: var(--primary-color);
+}
+
+.header__sort-item:first-child {
+    top: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+}
+
+
 /* Cart */
 
 .header__cart {
@@ -697,8 +774,9 @@
 .header__cart-wrap {
     position: relative;
     display: inline-block;
-    padding: 0 8px;
+    padding: 0 12px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-list::after {
@@ -724,7 +802,7 @@
 .header__cart-list {
     position: absolute;
     top: calc(100% + 4px);
-    right: -3px;
+    right: -2px;
     background-color: var(--white-color);
     width: 400px;
     border-radius: 2px;
@@ -782,7 +860,7 @@
 .header__cart-list-item {
     padding-left: 0;
     list-style: none;
-    height: 50vh;
+    max-height: 56vh;
     overflow-y: auto;
 }
 
@@ -955,6 +1033,69 @@
     /* right: -4px; */
     color: var(--primary-color);
     cursor: pointer;
+}
+
+
+/* Mobile category */
+
+.mobile-category {
+    display: none;
+}
+
+.mobile-category__list::-webkit-scrollbar {
+    /* Ẩn thanh cuộn  */
+    display: none;
+}
+
+.mobile-category__list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    max-width: 100%;
+    /* kéo trái phải */
+    overflow-x: auto;
+}
+
+.mobile-category__item {
+    flex-shrink: 0;
+    margin-right: 10px;
+    width: 108px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.mobile-category__item:nth-of-type(3n+1) {
+    background-color: #87afd8;
+}
+
+.mobile-category__item:nth-of-type(3n+2) {
+    background-color: #76c9bd;
+}
+
+.mobile-category__item:nth-of-type(3n+3) {
+    background-color: #88cf81;
+}
+
+.mobile-category__link {
+    text-decoration: none;
+    color: var(--white-color);
+    background-color: rgba(0, 0, 0, 0.04);
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+    text-align: center;
+    display: inline-block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    -webkit-tap-highlight-color: transparent;
+    /* không cho chuyển chữ */
+    user-select: none;
+    -webkit-user-select: none;
+    overflow: hidden;
+    padding: 0 6px;
 }
 
 
@@ -1271,6 +1412,7 @@ i.home-product-item__like-icon-fill {
 
 .home-product__pagination {
     margin: 48px 0 32px 0;
+    padding-left: 0;
 }
 
 
@@ -1307,7 +1449,7 @@ i.home-product-item__like-icon-fill {
 
 .footer-item__icon {
     font-size: 1.6rem;
-    margin: -1px 8px 0 0;
+    margin: 0 8px 0 0;
 }
 
 .footer__download {
